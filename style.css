@@ -109,3 +109,47 @@ body {
 #backToTopBtn:hover {
     transform: scale(1.2);
 }
+/* Store Page Styles */
+.store-header {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.store-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.store-header p {
+    font-size: 1.5rem;
+    color: #ffe6f2;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.store-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.store-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+.store-img {
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 1.5rem;
+    border-radius: 15px;
+}
