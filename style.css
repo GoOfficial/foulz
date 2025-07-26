@@ -202,3 +202,59 @@ body {
     font-size: 1.2rem;
     color: #e4b6ff;
 }
+
+.audio-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(230, 200, 255, 0.15);
+    border: 1px solid rgba(230, 200, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+}
+
+#audio-controls:hover #volumeSlider {
+    opacity: 1;
+}
+
+#muteBtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #e4b6ff;
+    cursor: pointer;
+}
+
+#volumeSlider {
+    appearance: none;
+    width: 100px;
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #e4b6ff 0%, #d7b5f9 100%);
+    outline: none;
+    transition: opacity 0.3s ease;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #d7b5f9;
+    cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #d7b5f9;
+    cursor: pointer;
+}
