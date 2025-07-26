@@ -293,14 +293,14 @@ body::before {
     pointer-events: none;
 }
 
-/* Custom Pastel Pink Scrollbar with Baby Blue Track */
+/* Custom Pastel Pink Scrollbar with Baby Blue Track - stronger override */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(173, 216, 230, 0.2); /* light baby blue with some transparency */
+    background: #add8e6 !important; /* solid light baby blue */
     border-radius: 10px;
 }
 
@@ -313,4 +313,5 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #f2a4cc, #f5bce5);
 }
+
 
