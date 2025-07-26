@@ -292,3 +292,24 @@ body::before {
     z-index: -1;
     pointer-events: none;
 }
+
+/* Custom Pastel Pink Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 240, 250, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f4b6d7, #f7c8e7);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #f2a4cc, #f5bce5);
+}
