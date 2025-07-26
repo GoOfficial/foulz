@@ -9,7 +9,7 @@ body {
     font-family: 'DynaPuff', cursive;
     background: url('images/background.gif') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
+    color: #f5eaff;
     text-align: center;
     padding: 2rem;
     overflow-x: hidden;
@@ -30,25 +30,28 @@ body {
 
 .header {
     margin-top: 3rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: 20px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
+    color: #f6ebff;
 }
 
 .header h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #e4b6ff;
 }
 
 .header p {
     font-size: 1.5rem;
     line-height: 2.5rem;
+    color: #f3dcff;
 }
 
 .buttons {
@@ -60,24 +63,24 @@ body {
 
 .btn {
     text-decoration: none;
-    background: linear-gradient(135deg, #4ecbff, #4e9cff);
+    background: linear-gradient(135deg, #d7b5f9, #cbb3f5);
     padding: 1rem 2.5rem;
     font-size: 1.5rem;
     border-radius: 50px;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(78, 156, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(202, 151, 255, 0.4);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(78, 156, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(202, 151, 255, 0.6);
 }
 
 .footer {
     margin-top: 5rem;
     font-size: 1.2rem;
-    color: #d6eaff;
+    color: #e9d8ff;
 }
 
 /* Back to Top Button */
@@ -88,13 +91,13 @@ body {
     right: 30px;
     z-index: 100;
     font-size: 2rem;
-    background: linear-gradient(135deg, #4ecbff, #4e9cff);
+    background: linear-gradient(135deg, #d7b5f9, #cbb3f5);
     color: white;
     border: none;
     border-radius: 50%;
     padding: 0.8rem 1rem;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(78, 156, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(202, 151, 255, 0.4);
     transition: transform 0.3s;
 }
 
@@ -111,11 +114,12 @@ body {
 .store-header h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #e4b6ff;
 }
 
 .store-header p {
     font-size: 1.5rem;
-    color: #d6eaff;
+    color: #f3dcff;
 }
 
 .store-grid {
@@ -126,9 +130,9 @@ body {
 }
 
 .store-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
@@ -137,7 +141,7 @@ body {
 
 .store-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(78, 156, 255, 0.5);
+    box-shadow: 0 8px 20px rgba(202, 151, 255, 0.5);
 }
 
 .store-img {
@@ -156,7 +160,7 @@ body {
 .store-title {
     font-size: 3rem;
     margin-bottom: 2rem;
-    color: #d6eaff;
+    color: #e4b6ff;
 }
 
 .product-grid {
@@ -166,9 +170,9 @@ body {
 }
 
 .product-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -177,7 +181,7 @@ body {
 
 .product-card:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(78, 156, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(202, 151, 255, 0.4);
 }
 
 .product-image {
@@ -191,9 +195,10 @@ body {
 .product-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: #f5eaff;
 }
 
 .product-price {
     font-size: 1.2rem;
-    color: #d6eaff;
+    color: #e4b6ff;
 }
