@@ -17,38 +17,50 @@ backToTopBtn.addEventListener('click', function () {
 const bgAudio = document.getElementById('bgAudio');
 const volumeSlider = document.getElementById('volumeSlider');
 const muteBtn = document.getElementById('muteBtn');
+const audioPrompt = document.getElementById('audioPrompt');
 
-// SAFELY AUTOPLAY WITH FADE-IN
+// Initialize audio volume to 0 (will fade in)
+bgAudio.volume = 0;
+
+// Try to autoplay
 window.addEventListener('DOMContentLoaded', () => {
-    bgAudio.volume = 0; // Start silent
+    const playPromise = bgAudio.play();
 
-    const tryPlay = bgAudio.play();
-
-    if (tryPlay !== undefined) {
-        tryPlay
+    if (playPromise !== undefined) {
+        playPromise
             .then(() => {
-                console.log('Autoplay worked.');
-
-                // Fade in volume
-                let vol = 0;
-                const targetVol = parseFloat(volumeSlider.value); // 1 by default
-                const fadeInterval = setInterval(() => {
-                    if (vol < targetVol) {
-                        vol += 0.05;
-                        bgAudio.volume = vol;
-                        volumeSlider.value = vol;
-                    } else {
-                        clearInterval(fadeInterval);
-                        bgAudio.volume = targetVol;
-                    }
-                }, 100);
+                console.log('Autoplay success');
+                fadeInVolume(parseFloat(volumeSlider.value || 1));
             })
             .catch((err) => {
                 console.warn('Autoplay blocked:', err);
-                muteBtn.textContent = '🔇';
+                if (audioPrompt) audioPrompt.style.display = 'flex';
             });
     }
 });
+
+// Fade-in volume function
+function fadeInVolume(targetVol) {
+    let vol = 0;
+    const fadeInterval = setInterval(() => {
+        vol = Math.min(vol + 0.05, targetVol);
+        bgAudio.volume = vol;
+        volumeSlider.value = vol;
+        if (vol >= targetVol) clearInterval(fadeInterval);
+    }, 100);
+}
+
+// Click-to-enable-music fallback
+if (audioPrompt) {
+    audioPrompt.addEventListener('click', () => {
+        bgAudio.muted = false;
+        bgAudio.volume = 0;
+        bgAudio.play().then(() => {
+            fadeInVolume(parseFloat(volumeSlider.value || 1));
+            audioPrompt.style.display = 'none';
+        });
+    });
+}
 
 // VOLUME SLIDER CONTROL
 volumeSlider.addEventListener('input', () => {
@@ -62,7 +74,7 @@ volumeSlider.addEventListener('input', () => {
     }
 });
 
-// MUTE / UNMUTE TOGGLE BUTTON
+// MUTE / UNMUTE BUTTON
 muteBtn.addEventListener('click', () => {
     if (bgAudio.volume > 0) {
         bgAudio.dataset.prevVolume = bgAudio.volume;
