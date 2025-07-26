@@ -20,14 +20,21 @@ const muteBtn = document.getElementById('muteBtn');
 
 // Try to autoplay audio when page loads
 window.addEventListener('DOMContentLoaded', () => {
-    bgAudio.volume = volumeSlider.value;
-    bgAudio.muted = false;
+    try {
+        bgAudio.muted = false;
+        bgAudio.volume = parseFloat(volumeSlider.value);
+        const playPromise = bgAudio.play();
 
-    // Attempt to play audio
-    bgAudio.play().catch((err) => {
-        console.warn('Autoplay may be blocked by browser:', err);
-        // Optional: Show UI prompt to user if needed
-    });
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                console.log('Audio autoplayed successfully.');
+            }).catch((err) => {
+                console.warn('Autoplay was blocked:', err);
+            });
+        }
+    } catch (e) {
+        console.error('Autoplay setup failed:', e);
+    }
 });
 
 // VOLUME SLIDER CONTROL
