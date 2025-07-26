@@ -18,22 +18,35 @@ const bgAudio = document.getElementById('bgAudio');
 const volumeSlider = document.getElementById('volumeSlider');
 const muteBtn = document.getElementById('muteBtn');
 
-// Try to autoplay audio when page loads
+// SAFELY AUTOPLAY WITH FADE-IN
 window.addEventListener('DOMContentLoaded', () => {
-    try {
-        bgAudio.muted = false;
-        bgAudio.volume = parseFloat(volumeSlider.value);
-        const playPromise = bgAudio.play();
+    bgAudio.volume = 0; // Start silent
 
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                console.log('Audio autoplayed successfully.');
-            }).catch((err) => {
-                console.warn('Autoplay was blocked:', err);
+    const tryPlay = bgAudio.play();
+
+    if (tryPlay !== undefined) {
+        tryPlay
+            .then(() => {
+                console.log('Autoplay worked.');
+
+                // Fade in volume
+                let vol = 0;
+                const targetVol = parseFloat(volumeSlider.value); // 1 by default
+                const fadeInterval = setInterval(() => {
+                    if (vol < targetVol) {
+                        vol += 0.05;
+                        bgAudio.volume = vol;
+                        volumeSlider.value = vol;
+                    } else {
+                        clearInterval(fadeInterval);
+                        bgAudio.volume = targetVol;
+                    }
+                }, 100);
+            })
+            .catch((err) => {
+                console.warn('Autoplay blocked:', err);
+                muteBtn.textContent = '🔇';
             });
-        }
-    } catch (e) {
-        console.error('Autoplay setup failed:', e);
     }
 });
 
@@ -43,22 +56,23 @@ volumeSlider.addEventListener('input', () => {
     bgAudio.volume = volume;
 
     if (volume === 0) {
-        bgAudio.muted = true;
         muteBtn.textContent = '🔇';
     } else {
-        bgAudio.muted = false;
         muteBtn.textContent = '🔊';
     }
 });
 
 // MUTE / UNMUTE TOGGLE BUTTON
 muteBtn.addEventListener('click', () => {
-    bgAudio.muted = !bgAudio.muted;
-
-    if (bgAudio.muted) {
-        muteBtn.textContent = '🔇';
+    if (bgAudio.volume > 0) {
+        bgAudio.dataset.prevVolume = bgAudio.volume;
+        bgAudio.volume = 0;
         volumeSlider.value = 0;
+        muteBtn.textContent = '🔇';
     } else {
+        const previous = parseFloat(bgAudio.dataset.prevVolume || 1);
+        bgAudio.volume = previous;
+        volumeSlider.value = previous;
         muteBtn.textContent = '🔊';
-        if (bgAudio.volume === 0) {
-            bgAudio.volume
+    }
+});
