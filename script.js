@@ -1,4 +1,3 @@
-// BACK TO TOP BUTTON FUNCTIONALITY
 const backToTopBtn = document.getElementById('backToTopBtn');
 
 window.onscroll = function () {
@@ -13,16 +12,13 @@ backToTopBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// BACKGROUND AUDIO CONTROLS
 const bgAudio = document.getElementById('bgAudio');
 const volumeSlider = document.getElementById('volumeSlider');
 const muteBtn = document.getElementById('muteBtn');
 const audioPrompt = document.getElementById('audioPrompt');
 
-// Initialize audio volume to 0 (will fade in)
 bgAudio.volume = 0;
 
-// Try to autoplay
 window.addEventListener('DOMContentLoaded', () => {
     const playPromise = bgAudio.play();
 
@@ -39,7 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Fade-in volume function
 function fadeInVolume(targetVol) {
     let vol = 0;
     const fadeInterval = setInterval(() => {
@@ -50,7 +45,6 @@ function fadeInVolume(targetVol) {
     }, 100);
 }
 
-// Click-to-enable-music fallback
 if (audioPrompt) {
     audioPrompt.addEventListener('click', () => {
         bgAudio.muted = false;
@@ -62,7 +56,6 @@ if (audioPrompt) {
     });
 }
 
-// VOLUME SLIDER CONTROL
 volumeSlider.addEventListener('input', () => {
     const volume = parseFloat(volumeSlider.value);
     bgAudio.volume = volume;
@@ -74,7 +67,6 @@ volumeSlider.addEventListener('input', () => {
     }
 });
 
-// MUTE / UNMUTE BUTTON
 muteBtn.addEventListener('click', () => {
     if (bgAudio.volume > 0) {
         bgAudio.dataset.prevVolume = bgAudio.volume;
