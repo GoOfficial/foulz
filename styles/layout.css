@@ -1,0 +1,275 @@
+.page {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    padding-top: calc(var(--nav-h) + 56px);
+    padding-bottom: 80px;
+    z-index: 2;
+}
+
+.topnav {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px 8px 22px;
+    background:
+        linear-gradient(135deg, rgba(255, 157, 199, 0.03), rgba(255, 175, 211, 0.03)),
+        rgba(18, 10, 18, 0.78);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.50);
+    transition: transform 0.6s var(--ease), opacity 0.4s var(--ease), top 0.4s var(--ease);
+    max-width: calc(100vw - 24px);
+}
+
+.topnav.hidden {
+    transform: translateX(-50%) translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.brand {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    padding: 6px 14px 6px 4px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 6px;
+    text-transform: lowercase;
+    user-select: none;
+    position: relative;
+}
+
+.brand::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(255, 175, 211, 0.18), transparent);
+}
+
+.brand span {
+    display: inline-block;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform 0.5s var(--ease-bounce), filter 0.4s var(--ease);
+}
+
+.brand:hover span {
+    animation: brandWave 0.9s var(--ease-bounce);
+    filter: drop-shadow(0 0 12px rgba(255, 157, 199, 0.8));
+}
+
+.brand span:nth-child(1) { animation-delay: 0ms; }
+.brand span:nth-child(2) { animation-delay: 40ms; }
+.brand span:nth-child(3) { animation-delay: 80ms; }
+.brand span:nth-child(4) { animation-delay: 120ms; }
+.brand span:nth-child(5) { animation-delay: 160ms; }
+.brand span:nth-child(6) { animation-delay: 200ms; }
+.brand span:nth-child(7) { animation-delay: 240ms; }
+
+.tabs {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2px;
+    padding: 0;
+    position: relative;
+}
+
+.tabs li {
+    position: relative;
+}
+
+.tabs a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--ink-soft);
+    border-radius: var(--radius-pill);
+    transition: color 0.35s var(--ease), background 0.35s var(--ease), transform 0.4s var(--ease);
+    position: relative;
+    text-transform: lowercase;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tabs a:hover {
+    color: var(--ink);
+    background: rgba(255, 157, 199, 0.08);
+}
+
+.tabs a.active {
+    color: #fff;
+    background: linear-gradient(135deg, rgba(255, 157, 199, 0.18), rgba(255, 175, 211, 0.18));
+}
+
+.audio-widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    margin-left: 6px;
+    padding-left: 14px;
+    position: relative;
+}
+
+.audio-widget::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22%;
+    height: 56%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(255, 175, 211, 0.18), transparent);
+}
+
+.hero {
+    min-height: calc(100vh - var(--nav-h) - 56px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 12vh 0 100px;
+    position: relative;
+}
+
+.block {
+    padding: 90px 0;
+    position: relative;
+    scroll-margin-top: calc(var(--nav-h) + 40px);
+}
+
+.block-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.block-index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--ink-mute);
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 157, 199, 0.05);
+}
+
+.block-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: -1px;
+    line-height: 1;
+    text-transform: lowercase;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.footer {
+    margin-top: 100px;
+    padding: 60px 0 20px;
+    text-align: center;
+    background: linear-gradient(90deg, transparent, rgba(255, 175, 211, 0.18), transparent) top/60% 1px no-repeat;
+    position: relative;
+}
+
+.footer-mark {
+    font-family: 'Russo One', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+}
+
+.footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 920px) {
+    .topnav {
+        padding: 6px 8px 6px 16px;
+        gap: 4px;
+    }
+    .brand {
+        font-size: 15px;
+        padding: 4px 10px 4px 2px;
+        margin-right: 4px;
+    }
+    .tabs a {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+    .audio-widget {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .topnav {
+        top: 14px;
+    }
+    .tabs a {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    .brand {
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+    .page {
+        padding: 0 18px;
+        padding-top: calc(var(--nav-h) + 40px);
+    }
+    .block {
+        padding: 60px 0;
+    }
+    .block-head {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topnav {
+        gap: 2px;
+        padding: 4px 6px 4px 10px;
+    }
+    .brand {
+        padding-right: 6px;
+        margin-right: 2px;
+    }
+    .tabs a {
+        padding: 5px 6px;
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+}
