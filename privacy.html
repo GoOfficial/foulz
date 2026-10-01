@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>privacy policy — .foulz.</title>
+
+    <meta name="description" content="Privacy Policy for foulz.xyz platforms and licensing services.">
+    <meta name="author" content="peyton">
+    <meta name="theme-color" content="#ffbfd9">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="icon" href="images/foulz.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/foulz.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Russo+One&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/effects.css">
+</head>
+
+<body>
+
+<div class="bg-layer bg-gradient"></div>
+<div class="bg-layer bg-noise"></div>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-particles" id="bgParticles"></div>
+<div class="bg-layer bg-cursor" id="cursorGlow"></div>
+
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<audio id="bgaudio" loop preload="auto">
+    <source src="images/background.mp3" type="audio/mpeg">
+</audio>
+
+<nav class="topnav" id="topnav">
+    <a href="index.html" class="brand" role="link">
+        <span>.</span><span>f</span><span>o</span><span>u</span><span>l</span><span>z</span><span>.</span>
+    </a>
+    <ul class="tabs">
+        <li><a href="index.html">home</a></li>
+        <li><a href="privacy.html" class="active">privacy</a></li>
+    </ul>
+    <div class="audio-widget">
+        <button id="muteBtn" class="audio-btn" aria-label="mute">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.25">
+    </div>
+</nav>
+
+<main class="page">
+
+    <section id="privacy" class="block">
+        <div class="block-head">
+            <div class="block-index">01</div>
+            <h2 class="block-title">privacy <span class="grad-text">policy</span></h2>
+        </div>
+
+        <article class="glass-card reveal" style="margin-bottom: 24px;">
+            <h3 style="font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--pink); text-transform: lowercase; margin-bottom: 12px;">// data collection</h3>
+            <p>
+                Our authentication infrastructure limits profile collection strictly to assets mandatory for software license validation and client synchronization. We securely capture Hardware IDs (HWIDs) for device verification locks, alongside cryptographic session tokens generated during application launch parameters. To format custom user dashboards, basic discord profiles (User ID, username, and avatar URLs) are referenced dynamically.
+            </p>
+        </article>
+
+        <article class="glass-card reveal" style="margin-bottom: 24px;">
+            <h3 style="font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--pink); text-transform: lowercase; margin-bottom: 12px;">// discord bot tracking</h3>
+            <p>
+                Our community helper bot functions solely on an interactive, on-demand transaction model. The bot framework does not monitor, cache, or harvest channel message contents, streaming presence layers, or off-platform user operations. Text interactions are parsed in real-time exclusively to address direct developer API executions or validation command sequences.
+            </p>
+        </article>
+
+        <article class="glass-card reveal" style="margin-bottom: 24px;">
+            <h3 style="font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--pink); text-transform: lowercase; margin-bottom: 12px;">// automatic deletion logs</h3>
+            <p>
+                To sustain complete data minimisation protocols, our backend MySQL databases apply automated retention loops. Upon the full expiration of an active software license string, matching system records and user profile data configurations are systematically cleared from our servers. 
+            </p>
+        </article>
+
+        <article class="glass-card reveal">
+            <h3 style="font-family: 'Russo One', sans-serif; font-size: 18px; color: var(--pink); text-transform: lowercase; margin-bottom: 12px;">// user control & erasure rights</h3>
+            <p>
+                Clients retain absolute governance over their tracked information profiles. Active users can demand immediate manual eradication of telemetry records, historical transaction charts, or license bindings at any interval prior to standard automated purge routines by opening an active management ticket inside our community infrastructure.
+            </p>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-mark">.foulz.</div>
+        <p>built by peyton — © <span id="year"></span></p>
+    </footer>
+
+</main>
+
+<button id="backTop" class="back-top" aria-label="back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script src="scripts/cursor.js"></script>
+<script src="scripts/audio.js"></script>
+<script src="scripts/nav.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
