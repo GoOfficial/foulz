@@ -1,0 +1,10 @@
+PRIVACY POLICY
+data collection
+In our authentication framework, the collection of the profile is restricted only to those that are necessary to verify the software licenses and synchronization of the clients. The Hardware Identification (HWID) of devices, along with the cryptographic session tokens that are created when launching applications, are collected. For custom user dashboard purposes, discord profile details are used dynamically.
+discord bot tracking
+The bot used by our community for assistance operates strictly based on the interactive transaction mode. It does not track, cache, or store any channel message content, streaming layer, or actions performed outside the platform. The text interactions are parsed only in real time for developer API requests or validations.
+automated deletion logs
+In order to ensure that our data minimization procedures are entirely upheld, we utilize automated retention loops for our backend MySQL databases. Once the expiration of the software license expires, the system automatically deletes the corresponding data configuration settings on our servers.
+client control & deletion rights
+The client controls its own tracking information profile absolutely. The client can request a manual deletion of tracking records, transactional charts or license binders at any time before automatic purging through opening of an active management ticket in our community system.
+
